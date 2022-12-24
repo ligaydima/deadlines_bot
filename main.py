@@ -86,7 +86,7 @@ async def closest_deadline(msg):
         if li[opt][1] > li[i][1]:
             opt = i
     await bot.send_message(msg.chat.id,
-                           "Ближайший дедлайн:\n" + f"{li[opt[0]]} в {li[opt[1]]}")
+                           "Ближайший дедлайн:\n" + f"{li[opt][0]} в {li[opt][1]}")
 
 
 # process /procrastinate
