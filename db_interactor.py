@@ -58,7 +58,7 @@ class DBInteractor:
         :return list of tuples (desc, time) of types (str, datetime)
         """
         cur = await self.db.execute(f"""SELECT * from StrongNotifications WHERE user_id={user_id}""")
-        ans = [(i[1], datetime.datetime.strptime(i[2], "%Y-%m-%d %H:%M:%S")) for i in
+        ans = [(i[1], datetime.datetime.fromtimestamp(i[2] + 3600 * 2)) for i in
                await cur.fetchall()]  # 2022-12-09 21:59:00
         await cur.close()
         return ans
